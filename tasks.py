@@ -1,6 +1,7 @@
 from selenium import webdriver
 from pageobjects.twitter import home
 import unittest
+import requests
 
 
 class Task1(unittest.TestCase):
@@ -39,16 +40,9 @@ class Task1(unittest.TestCase):
 
 
 class Task2(unittest.TestCase):
-    '''
     def setUp(self) -> None:
-        self.driver = webdriver.Firefox()
-        #self.home_page = home.HomePage.open(self.driver)
-
-    def tearDown(self) -> None:
-        #self.home_page = None
-        self.driver.close()
-        self.driver.quit()
-    '''
+        self.url_task2 = "https://data.ca.gov/api/action/datastore/search.json?resource_id=104076d0-4bbd-4d53-a6df-0f5cb8b0030c&limit=10&offset=0"
+        self.result = requests.get(self.url_task2)
 
     '''
     Task 2
@@ -59,4 +53,6 @@ class Task2(unittest.TestCase):
     Assert the first county in the result set is "ALAMEDA"
     '''
     def test_task_2_validate_api_data(self) -> None:
-        pass
+        result_set = self.result.json()['result']['records']
+        self.assertEqual(10, len(result_set))
+        self.assertEqual("ALAMEDA", result_set[0]['county'])
