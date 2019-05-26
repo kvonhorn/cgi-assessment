@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/kvonhorn/cgi-assessment.svg?branch=master)](https://travis-ci.com/kvonhorn/cgi-assessment)
+
 My implementation of the coding task listed at [https://gist.github.com/VinhCGI/c503ea8a9c7c0b7fe0778dd8b9f42b40](https://gist.github.com/VinhCGI/c503ea8a9c7c0b7fe0778dd8b9f42b40)
 
 This assumes git, Python 3, and Firefox are installed. Implemented and tested in Ubuntu 18.10.
